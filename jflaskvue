@@ -1,0 +1,11 @@
+REPOSITORIO = $1
+MODULO = $2
+cd $REPOSITORIO/src/
+npm install
+npm run build
+mv dist/index.htm dist/$MODULO.html
+rm -rf ../../view/$MODULO/templates/*
+mv dist/* ../../view/$MODULO/templates/
+cd ..
+cd ..
+rm -rf $REPOSITORIO
