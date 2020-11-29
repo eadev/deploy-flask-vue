@@ -1,7 +1,7 @@
 cd $1/src/
 npm install
 npm run build
-mv dist/index.htm dist/$2.html
+mv dist/index.html dist/$2.html
 rm -rf ../../view/$2/templates/*
 mv dist/* ../../view/$2/templates/
 cd ..
