@@ -9,3 +9,6 @@ Proyecto para generar un script que permita el deployment de un proyecto flask-v
 ## Uso
     $ jflaskvue REPOSITORIO MODULO
 
+# Flask Integration
+
+    $ flaskintegration repositorio modulo
