@@ -1,4 +1,4 @@
 # Integración de un módulo flask por integracion continua.
 rm -rf api/$1
-mv $1/src/$2/ api/$2/
+mv $1/src/$2/ $2/
 rm -rf $1
