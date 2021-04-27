@@ -1,7 +1,9 @@
 cd $1/src/
+
 rm -rf node_modules
 rm -rf dist
-npm install --force
+npm cache clean
+npm install --save
 npm fund
 npm run build
 cd ../../
