@@ -1,4 +1,5 @@
 cd $1/src/
-npm install
+rm -rf node_modules
+npm install --unsafe-perms
 npm run build
 cd ../../
