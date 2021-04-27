@@ -1,5 +1,7 @@
 cd $1/src/
 rm -rf node_modules
-npm install --unsafe-perms
+rm -rf dist
+npm install
+npm fund
 npm run build
 cd ../../
