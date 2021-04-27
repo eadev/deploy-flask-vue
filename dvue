@@ -1,7 +1,7 @@
 cd $1/src/
 rm -rf node_modules
 rm -rf dist
-npm install
+npm install --force
 npm fund
 npm run build
 cd ../../
