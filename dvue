@@ -2,7 +2,7 @@ cd $1/src/
 
 rm -rf node_modules
 rm -rf dist
-npm cache clean
+npm cache clean --force
 npm install --save
 npm fund
 npm run build
