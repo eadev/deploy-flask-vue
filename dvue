@@ -1,5 +1,7 @@
-cd $1/src/
-
+cd $1/
+git submodule init
+git submodule update
+cd src/
 rm -rf node_modules
 rm -rf dist
 npm cache clean --force
