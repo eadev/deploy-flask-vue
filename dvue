@@ -1,12 +1,20 @@
+#### DEVOPS -  EDWIN ARIZA
+#### FACILITANDO EL DESPLIEGUE DE APLICACIONES VUE.
+
 cd $1/
-perl -i -p -e 's|https://(.*?)/|git@\1:|g' .gitmodules
-git submodule init
-git submodule update
+FILE=.gitmodules
+# VERIFICAMOS SI EL REPOSITORIO TIENE SUBMODULE.
+if test -f "$FILE"; then
+    perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
+    git submodule init
+    git submodule update
+fi
 cd src/
+# LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
 rm -rf node_modules
 rm -rf dist
-npm cache clean --force
 npm install --save
+npm audit fix
 npm fund
 npm run build
 cd ../../
