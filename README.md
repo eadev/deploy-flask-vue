@@ -6,9 +6,10 @@ Proyecto para generar un script que permita el deployment de un proyecto flask-v
 ## Descarga
     $ wget https://raw.githubusercontent.com/eadev/deploy-flask-vue/main/jflaskvue
 
-## Uso
-    $ jflaskvue REPOSITORIO MODULO
+## Vue build and submodules
+    $ ./dvue  repository
+    $ ./dvue  repository branch-submodules
 
-# Flask Integration
+# Flask Integration and submodules
 
-    $ flaskintegration repositorio modulo
+    $ ./dflask repositorio modulo
