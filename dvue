@@ -2,7 +2,6 @@
 #### FACILITANDO EL DESPLIEGUE DE APLICACIONES VUE.
 if [[ $1 != "" ]]
 then
-    echo "Enter PATH"
     cd $1/
     FILE=.gitmodules
     # VERIFICAMOS SI EL REPOSITORIO TIENE SUBMODULE.
@@ -24,8 +23,6 @@ then
     rm -rf node_modules
     rm -rf dist
     npm install --save
-    npm audit fix
-    npm fund
     npm run build
     rm -rf node_modules
     cd ../../
