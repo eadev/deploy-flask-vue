@@ -1,17 +1,20 @@
 #### DEVOPS -  EDWIN ARIZA
 #### FACILITANDO EL DESPLIEGUE DE APLICACIONES VUE.
+echo "VUE - START"
 if [[ $1 != "" ]]
 then
     cd $1/
     FILE=.gitmodules
-    # VERIFICAMOS SI EL REPOSITORIO TIENE SUBMODULE.
+    # SUBMODULES VALIDATION.
     if test -f "$FILE"
-    then
-        echo "Changing routes HTTPS to SSH"
-        perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
-        git submodule init
-        git submodule update
-        if [[ $2 != "" ]]
+        then
+            echo "Changing routes HTTPS to SSH"
+            perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
+            git submodule init
+            git submodule update
+        fi
+    # BRANCH SELECTION
+    if [[ $2 != "" ]]
         then
             BRANCH=$2
             echo "Include pull origin $BRANCH"
@@ -19,7 +22,6 @@ then
             git submodule foreach git pull origin $BRANCH
 
         fi
-    fi
     cd src/
     # LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
     rm -rf node_modules
