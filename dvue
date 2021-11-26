@@ -18,8 +18,8 @@ then
         then
             BRANCH=$2
             echo "Include pull origin $BRANCH"
-            git submodule foreach git checkout $BRANCH
-            git submodule foreach git pull origin $BRANCH
+            git checkout $BRANCH
+            git pull origin $BRANCH
 
         fi
     cd src/
