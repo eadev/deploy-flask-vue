@@ -16,6 +16,7 @@ then
             BRANCH=$2
             echo "Include pull origin $BRANCH"
             git submodule foreach git pull origin $BRANCH
+            git submodule foreach git checkout $BRANCH
         fi
     fi
     cd src/
