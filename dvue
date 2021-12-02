@@ -27,6 +27,7 @@ then
     rm -rf node_modules
     rm -rf dist
     npm install --save
+    set -e
     npm run build
     rm -rf node_modules
     cd ../../
