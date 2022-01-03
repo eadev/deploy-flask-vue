@@ -20,7 +20,7 @@ then
             perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
             echo "UPDATING SUBMODULES"
             git submodule update --init --recursive
-            if [[ $3 != "--sub-force-version-repo" ]]
+            if [[ $3 == "--sub-force-version-repo" ]]
             then
                 echo "CHECKOUT ON $BRANCH"
                 git submodule foreach git checkout $BRANCH
