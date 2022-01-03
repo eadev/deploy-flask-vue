@@ -22,7 +22,7 @@ then
             git submodule update --init --recursive
             git submodule foreach --recursive git fetch
             if [[ $3 != "--sub-force-version-repo" ]]
-                them
+                then
                     git submodule foreach git checkout $BRANCH
                     git submodule foreach git pull origin $BRANCH
                 fi
