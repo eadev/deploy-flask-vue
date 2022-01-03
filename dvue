@@ -19,12 +19,14 @@ then
             echo "CHANGING ROUTES HTTPS to SSH"
             perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
             echo "UPDATING SUBMODULES"
+            git submodule update --init --recursive
             if [[ $3 != "--sub-force-version-repo" ]]
             then
+                echo "CHECKOUT ON $BRANCH"
                 git submodule foreach git checkout $BRANCH
                 git submodule foreach git pull origin $BRANCH
             else
-                git submodule update --init --recursive
+                echo "SELECT DEFAULT BRANCH"
                 git submodule foreach --recursive git fetch
             fi
         fi
