@@ -21,7 +21,8 @@ then
             echo "UPDATE RECURSIVE SUBMODULES"
             git submodule update --init --recursive
             git submodule foreach --recursive git fetch
-            if [[ $3 != "--force-submodules" ]]
+            if [[ $3 != "--sub-force-version-repo" ]]
+                git submodule foreach git checkout $BRANCH
                 git submodule foreach git pull origin $BRANCH
         fi
     cd src/
