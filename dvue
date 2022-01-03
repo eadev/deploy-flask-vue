@@ -18,14 +18,15 @@ then
         then
             echo "CHANGING ROUTES HTTPS to SSH"
             perl -i -p -e 's|https://(.*?)/|git@\1:|g' $FILE
-            echo "UPDATE RECURSIVE SUBMODULES"
-            git submodule update --init --recursive
-            git submodule foreach --recursive git fetch
+            echo "UPDATING SUBMODULES"
             if [[ $3 != "--sub-force-version-repo" ]]
-                then
-                    git submodule foreach git checkout $BRANCH
-                    git submodule foreach git pull origin $BRANCH
-                fi
+            then
+                git submodule foreach git checkout $BRANCH
+                git submodule foreach git pull origin $BRANCH
+            else
+                git submodule update --init --recursive
+                git submodule foreach --recursive git fetch
+            fi
         fi
     cd src/
     # LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
