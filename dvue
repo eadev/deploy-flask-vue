@@ -21,7 +21,8 @@ then
             echo "UPDATE RECURSIVE SUBMODULES"
             git submodule update --init --recursive
             git submodule foreach --recursive git fetch
-            git submodule foreach git pull
+            if [[ $3 != "--force-submodules" ]]
+                git submodule foreach git pull origin $BRANCH
         fi
     cd src/
     # LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
