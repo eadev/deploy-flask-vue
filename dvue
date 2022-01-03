@@ -5,6 +5,14 @@ if [[ $1 != "" ]]
 then
     cd $1/
     FILE=.gitmodules
+    # BRANCH SELECTION
+    if [[ $2 != "" ]]
+        then
+            BRANCH=$2
+            echo "Include pull origin $BRANCH"
+            git checkout $BRANCH
+            git pull origin $BRANCH
+        fi
     # SUBMODULES VALIDATION.
     if test -f "$FILE"
         then
@@ -13,14 +21,6 @@ then
             git submodule init
             git submodule update
             # git submodule foreach git pull origin master
-        fi
-    # BRANCH SELECTION
-    if [[ $2 != "" ]]
-        then
-            BRANCH=$2
-            echo "Include pull origin $BRANCH"
-            git checkout $BRANCH
-            git pull origin $BRANCH
         fi
     cd src/
     # LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
