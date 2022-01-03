@@ -22,8 +22,10 @@ then
             git submodule update --init --recursive
             git submodule foreach --recursive git fetch
             if [[ $3 != "--sub-force-version-repo" ]]
-                git submodule foreach git checkout $BRANCH
-                git submodule foreach git pull origin $BRANCH
+                them
+                    git submodule foreach git checkout $BRANCH
+                    git submodule foreach git pull origin $BRANCH
+                fi
         fi
     cd src/
     # LIMPIAMOS LOS ARCHIVOS Y CARPETAS CLAVE DE NODE O VUE
