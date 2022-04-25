@@ -3,12 +3,17 @@
 ## Descripción
 Proyecto para generar un script que permita el deployment de un proyecto flask-vue.
 
-## Descarga
-    $ wget https://raw.githubusercontent.com/eadev/deploy-flask-vue/main/jflaskvue
+## dvue
+### Descarga **dvue**.
+    $ wget https://raw.githubusercontent.com/eadev/deploy-flask-vue/main/dvue
 
-## Vue build and submodules
+### Uso de dvue to build repository.
     $ ./dvue  repository
     $ ./dvue  repository branch-submodules
+
+# dflask
+## Descarga **dflask**.
+    $ wget https://raw.githubusercontent.com/eadev/deploy-flask-vue/main/dflask
 
 # Flask Integration and submodules
 
