@@ -1,23 +1,17 @@
-# Description dflask
-# @author Edwin Ariza <edwin.ariza@systemico.co>
-# @company Systemico Software S.A.S
-
-# $1 Corresponde al nombre del proyecto git.
-# $2 Corresponde al nombre del módulo en el código del repositorio.
-# $3 Corresponde al path base. Por ejemplo: algunos proyectos usan src otros no.
-
-REPO = $1
-MODULE=$2
-PATH_BASE=""
-
-# Verificamos el parametro opcional $3 
-if [ $? -eq 0 ];
-then
-    PATH_BASE=""
-else
-    PATH_BASE="$3"
-fi
-
-rm -rf $MODULE
-mv $REPO/$PATH_BASE/$MODULE $MODULE
-rm -rf $REPO
+#### DEVOPS -  EDWIN ARIZA
+#### FACILITANDO EL DESPLIEGUE DE APLICACIONES FLASK.
+echo "FLASK - START"
+if [[ $1 != "" ]]
+    then
+        cd $1/
+        if [[ $2 != "" ]]
+            then
+                BRANCH=$2
+                echo "INCLUDE pull origin $BRANCH"
+                git checkout $BRANCH
+                git pull origin $BRANCH
+            fi
+    else
+        git pull
+    fi
+exit
